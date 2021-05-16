@@ -1,6 +1,7 @@
 package com.company;
 
 import java.security.SecureRandom;
+import java.util.Scanner;
 
 public class Main {
 
@@ -34,14 +35,21 @@ public class Main {
 //
 //        int dice = die1 + die2;
 //        System.out.println(dice);
-        System.out.println(rollDice(3,6));
+
+        Scanner s = new Scanner(System.in);
+        System.out.print("Enter the number of Dice: ");
+        int numDice = s.nextInt();
+        System.out.print("Enter the number of sides: ");
+        int numSides = s.nextInt();
+
+        System.out.println(rollDice(numDice,numSides));
     }
     public static int rollDice(int numDice, int numSides){
         SecureRandom randomNumber = new SecureRandom();
         int result = 0;
         //Creating for loop for automatically rolling dice
-        for(int i=0;i<=numDice-1;i++){
-            result = result+ 1 + randomNumber.nextInt(numSides);
+        for(int i=0;i<numDice;i++){
+            result = result + 1 + randomNumber.nextInt(numSides);
         }
         return result;
     }
